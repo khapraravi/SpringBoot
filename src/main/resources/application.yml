@@ -1,0 +1,44 @@
+server:
+  port: 8084
+
+spring:
+  profiles:
+    active: qa
+
+---
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: password
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/dcbapp-qa
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: password
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/dcbapp-prod
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: password
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/dcbapp
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
